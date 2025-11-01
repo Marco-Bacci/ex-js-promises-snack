@@ -18,15 +18,16 @@ getPostTitle(1)
 
 function lanciaDado() {
   return new Promise((resolve, reject) => {
+    console.log("Lanciando il dado...")
     setTimeout(() => {
       let numero = Math.floor(Math.random() * 6) + 1;
-      if (numero) {
+      if (numero > 1) {
         resolve(numero);
       } else {
-        reject();
+        reject("dado incastrato");
       }
-    });
-  }, 3000);
+    }, 3000);
+  });
 }
 
 lanciaDado()

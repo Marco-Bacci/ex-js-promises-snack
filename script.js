@@ -18,10 +18,11 @@ getPostTitle(1)
 
 function lanciaDado() {
   return new Promise((resolve, reject) => {
-    console.log("Lanciando il dado...")
+    console.log("Lanciando il dado...");
     setTimeout(() => {
-      let numero = Math.floor(Math.random() * 6) + 1;
-      if (numero > 1) {
+      let lancio = Math.random() > 0.2;
+      if (lancio) {
+        const numero = Math.floor(Math.random() * 6) + 1;
         resolve(numero);
       } else {
         reject("dado incastrato");
@@ -31,5 +32,5 @@ function lanciaDado() {
 }
 
 lanciaDado()
-.then(num => console.log("il numero uscito è:" , num))
-.catch(error => console.error(error))
+  .then((num) => console.log("il numero uscito è:", num))
+  .catch((error) => console.error(error));
